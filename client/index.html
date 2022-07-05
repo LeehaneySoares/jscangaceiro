@@ -60,11 +60,12 @@
     </table>
     <script src="./app/domain/negociacao/Negociacao.js"></script>
     <script>
-        const n1 = new Negociacao()
-        console.log(n1)
-
-        const n2 = new Negociacao()
-        console.log(n2)
+        const n1 = Negociacao.create({
+            data: new Date(),
+            quantidade: 5,
+            valor: 700
+        })
+        console.log(n1.obtemVolume())
     </script>
 </body>
 </html>
