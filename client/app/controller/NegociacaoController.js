@@ -8,3 +8,5 @@ class NegociacaoController {
     return new NegociacaoController()
   }
 }
+
+export default NegociacaoController
