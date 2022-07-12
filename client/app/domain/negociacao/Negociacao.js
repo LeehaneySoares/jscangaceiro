@@ -21,16 +21,16 @@ class Negociacao {
 
   constructor (_data, _quantidade, _valor) {
     Object.assign(this, { _quantidade, _valor })
-    this._data = new Date(_data.getTime())
+    this._data = new Date(_data)
     Object.freeze(this)
-    console.log(this)
+    console.log(this._data)
   }
 
-  static create (data, quantidade, valor) {
+  static create (descriptor) {
     return new Negociacao(
-      data,
-      quantidade,
-      valor
+      descriptor?.data,
+      descriptor?.quantidade,
+      descriptor?.valor
     )
   }
 }
