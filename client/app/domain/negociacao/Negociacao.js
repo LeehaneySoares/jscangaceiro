@@ -34,3 +34,5 @@ class Negociacao {
     )
   }
 }
+
+export default Negociacao
