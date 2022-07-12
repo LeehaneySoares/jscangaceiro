@@ -27,9 +27,11 @@ class NegociacaoController {
   adiciona (event) {
     event.preventDefault()
 
-    this.#negociacao = Negociacao.create(this)
-
-    console.log(this.#negociacao)
+    this.#negociacao = Negociacao.create({
+      data: this.#data.value.split('-'),
+      quantidade: this.#quantidade.value,
+      valor: this.#valor.value
+    })
   }
 
   static create () {
