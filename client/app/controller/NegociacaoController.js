@@ -1,10 +1,11 @@
 import $ from './shortcut.js'
 import Negociacao from '../domain/negociacao/Negociacao.js'
+import DateConverter from '../ui/converters/DateConverter.js'
 class NegociacaoController {
   #data
+  #negociacao
   #quantidade
   #valor
-  #negociacao
 
   get data () {
     return this.#data
@@ -12,6 +13,10 @@ class NegociacaoController {
 
   get quantidade () {
     return this.#quantidade
+  }
+
+  get negociacao () {
+    return this.#negociacao ??= ''
   }
 
   get valor () {
@@ -26,12 +31,12 @@ class NegociacaoController {
 
   adiciona (event) {
     event.preventDefault()
-
     this.#negociacao = Negociacao.create({
-      data: this.#data.value.split('-'),
-      quantidade: this.#quantidade.value,
-      valor: this.#valor.value
+      data: DateConverter.paraData(this.#data.value),
+      quantidade: parseInt(this.#quantidade.value),
+      valor: parseFloat(this.#valor.value)
     })
+    return this
   }
 
   static create () {
