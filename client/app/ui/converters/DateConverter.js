@@ -1,3 +1,8 @@
+/**
+ * Quando tmeos uma classe que todos os seus métodos são estáticos
+ * logo, ela é uma classe estática!
+ */
+
 class DateConverter {
   static paraTexto (data) {
     return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
