@@ -4,6 +4,10 @@
  */
 
 class DateConverter {
+  constructor () {
+    throw new Error('Essa classe não pode ser instânciada!')
+  }
+
   static paraTexto (data) {
     return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
   }
