@@ -1,6 +1,6 @@
 import $ from './shortcut.js'
-import Negociacao from '../domain/negociacao/Negociacao.js'
 import DateConverter from '../ui/converters/DateConverter.js'
+import Negociacao from '../domain/negociacao/Negociacao.js'
 import Negociacoes from '../domain/negociacao/Negociacoes.js'
 class NegociacaoController {
   #data
@@ -42,6 +42,9 @@ class NegociacaoController {
       quantidade: parseInt(this.#quantidade.value),
       valor: parseFloat(this.#valor.value)
     })
+    this.negociacoes.adiciona(this.negociacao)
+
+    console.log(this.#negociacoes.paraArray())
     return this
   }
 
