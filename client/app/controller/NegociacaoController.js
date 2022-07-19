@@ -1,9 +1,11 @@
 import $ from './shortcut.js'
 import Negociacao from '../domain/negociacao/Negociacao.js'
 import DateConverter from '../ui/converters/DateConverter.js'
+import Negociacoes from '../domain/negociacao/Negociacoes.js'
 class NegociacaoController {
   #data
   #negociacao
+  #negociacoes
   #quantidade
   #valor
 
@@ -17,6 +19,10 @@ class NegociacaoController {
 
   get negociacao () {
     return this.#negociacao ??= ''
+  }
+
+  get negociacoes () {
+    return this.#negociacoes ??= Negociacoes.create()
   }
 
   get valor () {

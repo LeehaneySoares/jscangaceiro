@@ -19,19 +19,17 @@ class Negociacao {
     return this.quantidade * this.valor
   }
 
-  constructor (_data, _quantidade, _valor, descriptor) {
+  constructor (_data, _quantidade, _valor) {
     Object.assign(this, { _quantidade, _valor })
     this._data = new Date(_data.getTime())
     Object.freeze(this)
-    console.log(descriptor)
   }
 
   static create (descriptor) {
     return new Negociacao(
       descriptor?.data,
       descriptor?.quantidade,
-      descriptor?.valor,
-      descriptor
+      descriptor?.valor
     )
   }
 }
