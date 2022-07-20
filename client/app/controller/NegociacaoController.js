@@ -4,7 +4,6 @@ import Negociacao from '../domain/negociacao/Negociacao.js'
 import Negociacoes from '../domain/negociacao/Negociacoes.js'
 class NegociacaoController {
   #data
-  #negociacao
   #negociacoes
   #quantidade
   #valor
@@ -15,10 +14,6 @@ class NegociacaoController {
 
   get quantidade () {
     return this.#quantidade
-  }
-
-  get negociacao () {
-    return this.#negociacao ??= ''
   }
 
   get negociacoes () {
@@ -37,14 +32,26 @@ class NegociacaoController {
 
   adiciona (event) {
     event.preventDefault()
-    this.#negociacao = Negociacao.create({
+    this.negociacoes.adiciona(this.#criaNegociacao())
+    this.#limparForm()
+    this.negociacoes.paraArray().length = 0
+    console.log(this.negociacoes)
+    return this
+  }
+
+  #criaNegociacao () {
+    return Negociacao.create({
       data: DateConverter.paraData(this.#data.value),
       quantidade: parseInt(this.#quantidade.value),
       valor: parseFloat(this.#valor.value)
     })
-    this.negociacoes.adiciona(this.negociacao)
+  }
 
-    console.log(this.#negociacoes.paraArray())
+  #limparForm () {
+    this.#data.value = ''
+    this.#quantidade.value = 1
+    this.#valor.value = 0.0
+    this.#data.focus()
     return this
   }
 
