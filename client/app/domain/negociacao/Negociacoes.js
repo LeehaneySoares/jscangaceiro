@@ -11,7 +11,7 @@ class Negociacoes {
   }
 
   paraArray () {
-    return this.negociacoes
+    return [].concat(this.negociacoes)
   }
   
   static create () {
